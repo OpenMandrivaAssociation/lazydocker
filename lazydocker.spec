@@ -20,7 +20,7 @@ BuildRequires:	go
 tar zxf %{S:1}
 
 %build
-export GOFLAGS="-buildmode=pie -mod=readonly -modcacherw"
+export GOFLAGS="-buildmode=pie"
 go build -o %{name}
 
 %install
