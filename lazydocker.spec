@@ -2,7 +2,7 @@
 
 Name:		lazydocker
 Version:	0.24.1
-Release:	1
+Release:	2
 Source0:	https://github.com/jesseduffield/lazydocker/archive/v%{version}/%{name}-%{version}.tar.gz
 Source1:	%{name}-%{version}-vendor.tar.gz
 Summary:	The lazier way to manage everything docker
@@ -20,6 +20,7 @@ BuildRequires:	go
 tar zxf %{S:1}
 
 %build
+export GOFLAGS="-buildmode=pie -mod=readonly -modcacherw"
 go build -o %{name}
 
 %install
