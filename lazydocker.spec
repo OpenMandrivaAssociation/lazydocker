@@ -1,8 +1,8 @@
 %global debug_package %{nil}
 
 Name:		lazydocker
-Version:	0.24.1
-Release:	2
+Version:	0.24.2
+Release:	1
 Source0:	https://github.com/jesseduffield/lazydocker/archive/v%{version}/%{name}-%{version}.tar.gz
 Source1:	%{name}-%{version}-vendor.tar.gz
 Summary:	The lazier way to manage everything docker
@@ -20,8 +20,7 @@ BuildRequires:	go
 tar zxf %{S:1}
 
 %build
-export GOFLAGS="-buildmode=pie"
-go build -o %{name}
+go build -buildmode=pie -o %{name}
 
 %install
 install -Dpm775 %{name} %{buildroot}%{_bindir}/%{name}
